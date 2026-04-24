@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal - Market Intelligence Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+
+    .glass-card {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    }
+
+    .glass-card-hover:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.5);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .ai-gradient {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(88, 28, 135, 0.95));
+      box-shadow: 0 10px 30px -10px rgba(88, 28, 135, 0.8);
+    }
+
+    /* Tooltip */
+    .tooltip-container {
+      position: relative;
+      cursor: help;
+    }
+
+    .tooltip-container .tooltip-text {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s;
+      width: max-content;
+      background-color: #1e293b;
+      color: #cbd5e1;
+      text-align: center;
+      border-radius: 6px;
+      padding: 6px 12px;
+      position: absolute;
+      z-index: 50;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid #475569;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen selection:bg-blue-500/30">
+
+  <nav class="sticky top-0 z-50 bg-slate-900/95 border-b border-slate-800 backdrop-blur pb-4 pt-4 px-8 shadow-md">
+    <div class="max-w-[95rem] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div
+          class="w-10 h-10 rounded shadow-[0_0_15px_rgba(37,99,235,0.6)] bg-blue-600 flex items-center justify-center font-bold text-lg text-white">
+          MI
+        </div>
+        <span class="text-2xl font-bold tracking-tight text-white">Market <span
+            class="text-slate-400 font-light">Intelligence</span></span>
+      </div>
+      <div class="flex gap-4">
+        <select id="quick-nav"
+          class="bg-slate-800 border border-slate-700 text-white text-sm font-semibold rounded-lg p-2 outline-none cursor-pointer">
+          <option value="" disabled selected>Select Stock...</option>
+        </select>
+        <a href="compare.html"
+          class="text-sm font-semibold text-slate-300 hover:text-purple-400 transition border border-slate-700 px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 shadow-sm">VS
+          Engine</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="max-w-[95rem] mx-auto px-6 py-12 space-y-16 animate-[fadeIn_0.5s_ease-out_forwards]">
+
+    <!-- 1. HERO SECTION -->
+    <header class="flex flex-col border-b border-slate-800 pb-12">
+      <h1 class="text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-4 drop-shadow-md">Market Intelligence
+        Dashboard</h1>
+      <p class="text-slate-400 text-2xl font-medium max-w-4xl leading-relaxed mb-10">
+        Combining price action, technical indicators, and news sentiment to identify rapid quantitative edge and
+        opportunities.
+      </p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="hero-badges">
+        <!-- JS Populated -->
+        <div class="glass-card rounded-2xl p-6 glow-badge">
+          <div class="text-xs uppercase font-extrabold text-slate-400 tracking-widest mb-2">Analyzing Markets...</div>
+          <div class="h-8 bg-slate-800 rounded animate-pulse w-1/2"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. AI MARKET INSIGHT PANEL -->
+    <section>
+      <div
+        class="ai-gradient rounded-3xl p-10 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 shadow-2xl glass-card-hover">
+        <div class="absolute -right-20 -top-20 w-80 h-80 bg-blue-400/20 rounded-full blur-[100px]"></div>
+
+        <div class="flex-shrink-0 p-5 bg-white/10 rounded-2xl backdrop-blur border border-white/20 shadow-lg">
+          <svg class="w-12 h-12 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+
+        <div class="flex-1 relative z-10 w-full">
+          <h2
+            class="text-lg font-black text-blue-300 flex items-center gap-2 tracking-widest uppercase mb-4 border-b border-blue-500/30 pb-2 inline-block">
+            Autonomous Macro Synthesis
+          </h2>
+          <p id="ai-insight-text" class="text-white text-2xl leading-relaxed font-normal">
+            Processing regime algorithms and parsing target distributions...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 & 5. OPPORTUNITIES & RISK ALERTS -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      <!-- Top Opportunities -->
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+          <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6">
+            </path>
+          </svg>
+          Top Opportunities
+        </h2>
+        <div id="top-opps" class="space-y-4">
+          <!-- JS Populated -->
+        </div>
+      </div>
+
+      <!-- Risk Alerts -->
+      <div>
+        <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+          <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+            </path>
+          </svg>
+          Critical Risk Alerts
+        </h2>
+        <div id="risk-alerts" class="space-y-4">
+          <!-- JS Populated -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 6. MARKET DISTRIBUTION VISUALS -->
+    <section>
+      <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4">Global Network Distributions</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+        <div class="glass-card rounded-3xl p-6 glass-card-hover flex flex-col">
+          <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest mb-4 leading-tight">Company-wise Sentiment News</h3>
+          <div
+            class="w-full bg-slate-900 rounded-xl flex items-center justify-center p-2 min-h-[220px] border border-slate-700">
+            <img src="static/graphs/sentiment_distribution.png" class="w-full h-48 object-contain rounded-lg"
+              onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 glass-card-hover flex flex-col">
+          <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest mb-4">Macro Volatility Variance</h3>
+          <div
+            class="w-full bg-slate-900 rounded-xl flex items-center justify-center p-2 min-h-[220px] border border-slate-700">
+            <img src="static/graphs/volatility_over_time.png" class="w-full h-48 object-contain rounded-lg"
+              onerror="this.style.display='none'">
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 glass-card-hover flex flex-col md:col-span-2 xl:col-span-1">
+          <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest mb-4">Volume Over Return Impact</h3>
+          <div
+            class="w-full bg-slate-900 rounded-xl flex items-center justify-center p-2 min-h-[220px] border border-slate-700">
+            <img src="static/graphs/news_volume_vs_return.png" class="w-full h-48 object-contain rounded-lg"
+              onerror="this.style.display='none'">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2 & 7. STOCK SNAPSHOT TABLE -->
+    <section class="pb-16 pt-8">
+
+      <div
+        class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 pb-4 border-b border-slate-800 gap-6">
+        <div>
+          <h2 class="text-4xl font-extrabold text-white">Live Asset Screener</h2>
+          <p class="text-slate-400 mt-2 font-medium">Dynamically mapping composite signal outputs across evaluated
+            targets.</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="text-sm font-bold uppercase tracking-widest text-slate-400">Sort Matrix By:</span>
+          <select id="sort-select"
+            class="bg-slate-800 border-2 border-slate-600 focus:border-blue-500 outline-none px-4 py-2 rounded-xl text-white font-bold transition-colors cursor-pointer shadow-inner">
+            <option value="score_desc" selected>Composite Score (High to Low)</option>
+            <option value="score_asc">Composite Score (Low to High)</option>
+            <option value="sent_desc">NLP Sentiment (Bull to Bear)</option>
+            <option value="vol_desc">Volatility (High to Low)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-3xl border border-slate-700 overflow-hidden shadow-2xl relative">
+        <div id="metrics-loader"
+          class="absolute inset-0 z-10 bg-slate-900/80 backdrop-blur flex flex-col items-center justify-center">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
+        </div>
+
+        <div class="overflow-x-auto min-h-[400px]">
+          <table class="w-full text-left whitespace-nowrap">
+            <thead class="text-slate-400 uppercase bg-slate-900/80 border-b border-slate-700 font-bold text-xs">
+              <tr>
+                <th class="px-6 py-5 tracking-widest w-24">Ticker</th>
+                <th class="px-6 py-5 tracking-widest">Classification Label</th>
+                <th class="px-6 py-5 tracking-widest">Dominant Regime</th>
+
+                <th class="px-6 py-5 text-right tooltip-container">
+                  <span class="border-b border-dotted border-slate-500">Sent. Score</span>
+                  <span class="tooltip-text">Average explicit NLP text polarity mapped from -100 to 100</span>
+                </th>
+
+                <th class="px-6 py-5 text-right tooltip-container">
+                  <span class="border-b border-dotted border-slate-500">Avg Return</span>
+                  <span class="tooltip-text">Daily average directional price delta</span>
+                </th>
+
+                <th class="px-6 py-5 text-right tooltip-container">
+                  <span class="border-b border-dotted border-slate-500">Volatility</span>
+                  <span class="tooltip-text">10D Risk / Price Structure Fluctuation</span>
+                </th>
+
+                <th class="px-6 py-5 text-right tooltip-container">
+                  <span class="border-b border-dotted border-slate-500">Momentum</span>
+                  <span class="tooltip-text">Recent price directional acceleration factor</span>
+                </th>
+
+                <th class="px-6 py-5 text-right tooltip-container text-white bg-slate-800/50">
+                  <span class="border-b border-dotted border-white">Comp Score</span>
+                  <span class="tooltip-text">Cumulative ranking signal combining all structural edges</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="screener-tbody" class="divide-y divide-slate-800 bg-slate-900/30 text-base">
+              <!-- JS Populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="static/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+
+      const formatNumber = (num, dec = 3) => isNaN(num) ? 'N/A' : parseFloat(num).toFixed(dec);
+
+      // Load Data
+      const rawData = await fetchCSV('final_stock_summary.csv');
+
+      if (!rawData || rawData.length === 0) {
+        document.getElementById('ai-insight-text').textContent = "ERROR: Failed to source final_stock_summary.csv pipeline outputs.";
+        return;
+      }
+
+      // 1. Map & Compute missing dynamic components efficiently
+      let enrichedData = rawData.map(row => {
+        let ticker = row.Ticker || 'Unknown';
+        let label = row.Final_Label || row.label || 'N/A';
+        let regime = row.Dominant_Regime || row.regime || 'N/A';
+        let ret = parseFloat(row.Return_1D || 0);
+        let vol = parseFloat(row.Volatility_10D || 0);
+        let spike = parseFloat(row.Volume_Spike || 1);
+        let score = parseFloat(row.Score || row['composite score'] || row.composite_score || 0);
+
+        let mom = ret * spike * 100;
+        let sentiment = score * 25; // Map roughly to -100 - +100
+        if (sentiment > 100) sentiment = 100;
+        if (sentiment < -100) sentiment = -100;
+
+        let lblLow = label.toLowerCase();
+        let isBull = lblLow.includes('bull') || lblLow.includes('up');
+        let isBear = lblLow.includes('bear') || lblLow.includes('down') || lblLow.includes('risk');
+
+        return { ticker, label, regime, ret, vol, spike, score, mom, sentiment, isBull, isBear };
+      }).filter(r => r.ticker !== 'Unknown');
+
+      // Global Stats
+      let total = enrichedData.length;
+      let totalBull = enrichedData.filter(r => r.isBull).length;
+      let totalBear = enrichedData.filter(r => r.isBear).length;
+      let avgSent = enrichedData.reduce((acc, curr) => acc + curr.sentiment, 0) / total;
+      let avgVol = enrichedData.reduce((acc, curr) => acc + curr.vol, 0) / total;
+
+      // Regime Distribution Calculation for Insight
+      let regimeCounts = {};
+      enrichedData.forEach(r => { regimeCounts[r.regime] = (regimeCounts[r.regime] || 0) + 1; });
+      let domRegimeTally = Object.entries(regimeCounts).sort((a, b) => b[1] - a[1])[0];
+      let mainRegime = domRegimeTally ? domRegimeTally[0] : "Mixed";
+
+      // Populate Top Nav
+      const navSelect = document.getElementById('quick-nav');
+      let sortedTickers = [...enrichedData].map(r => r.ticker).sort();
+      sortedTickers.forEach(t => {
+        let opt = document.createElement('option');
+        opt.value = t; opt.textContent = t;
+        navSelect.appendChild(opt);
+      });
+      navSelect.addEventListener('change', e => {
+        if (e.target.value) window.location.href = `stock.html?ticker=${e.target.value}`;
+      });
+
+      // Update Hero Badges
+      const badgesHTML = `
+        <div class="glass-card rounded-2xl p-6 glass-card-hover border-l-4 border-l-green-500">
+          <div class="text-xs uppercase font-extrabold text-slate-400 tracking-widest mb-1">Bullish Stance</div>
+          <div class="text-4xl font-black text-white">${formatNumber((totalBull / total) * 100, 1)}<span class="text-xl text-green-400 ml-1">%</span></div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 glass-card-hover border-l-4 border-l-red-500">
+          <div class="text-xs uppercase font-extrabold text-slate-400 tracking-widest mb-1">Bearish Stance</div>
+          <div class="text-4xl font-black text-white">${formatNumber((totalBear / total) * 100, 1)}<span class="text-xl text-red-400 ml-1">%</span></div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 glass-card-hover border-l-4 ${avgSent > 0 ? 'border-l-blue-400' : 'border-l-orange-400'}">
+          <div class="text-xs uppercase font-extrabold text-slate-400 tracking-widest mb-1">Market Sentiment</div>
+          <div class="text-4xl font-black text-white">${formatNumber(avgSent, 1)}<span class="text-sm font-bold text-slate-400 ml-2">IDX</span></div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 glass-card-hover border-l-4 border-l-purple-500">
+          <div class="text-xs uppercase font-extrabold text-slate-400 tracking-widest mb-1">Volume Weighted Vol</div>
+          <div class="text-4xl font-black text-white">${formatNumber(avgVol, 4)}</div>
+        </div>
+      `;
+      document.getElementById('hero-badges').innerHTML = badgesHTML;
+
+      // Update AI Insight
+      let sentimentStr = avgSent > 10 ? "markedly bullish" : (avgSent < -10 ? "notably bearish" : "slightly neutral");
+      let volStr = avgVol > 0.025 ? "high systemic volatility" : "moderate control volatility";
+      document.getElementById('ai-insight-text').innerHTML =
+        `Majority of the targeted asset pipeline implies a <strong class="text-purple-300 tracking-wide">${mainRegime}</strong> regime exhibiting <strong>${volStr}</strong>.<br/>
+        Aggregated market sentiment flags as <strong class="text-blue-300 border-b border-dashed border-blue-500">${sentimentStr}</strong>, enforcing directional continuation tracking within top-tier scored components.`;
+
+      // Top Opportunities & Risk
+      let scoreSorted = [...enrichedData].sort((a, b) => b.score - a.score);
+      const top5 = scoreSorted.slice(0, 5);
+      const bottom5 = scoreSorted.slice(-5).reverse(); // Worst at top
+
+      const buildCard = (asset, isGood) => {
+        let icon = isGood
+          ? `<div class="bg-green-500/20 text-green-400 p-2 rounded-lg border border-green-500/30"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg></div>`
+          : `<div class="bg-red-500/20 text-red-400 p-2 rounded-lg border border-red-500/30"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6"></path></svg></div>`;
+
+        let reason = "Solid regime tracking";
+        if (isGood) {
+          if (asset.mom > 0.2 && asset.sentiment > 0) reason = "Explosive momentum + positive polarity score";
+          else if (asset.vol < 0.015) reason = "Low volatility stable technical setup";
+          else reason = "Favorable ML Composite scoring edge";
+        } else {
+          if (asset.vol > 0.025 && asset.sentiment < 0) reason = "Excessive variance mixed with bearish sentiment";
+          else if (asset.mom < 0) reason = "Sustaining negative acceleration drag";
+          else reason = "Structural downside risk flagged by engine";
+        }
+
+        return `
+          <a href="stock.html?ticker=${asset.ticker}" class="block glass-card rounded-2xl p-5 glass-card-hover group">
+            <div class="flex items-center justify-between col-span-2">
+              <div class="flex items-center gap-4">
+                ${icon}
+                <div>
+                  <h4 class="text-xl font-black text-white group-hover:text-${isGood ? 'green' : 'red'}-400 transition-colors">${asset.ticker}</h4>
+                  <p class="text-xs uppercase font-bold text-slate-400 tracking-wider">${asset.label}</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-2xl font-black ${isGood ? 'text-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.5)]' : 'text-red-400 drop-shadow-[0_0_5px_rgba(248,113,113,0.5)]'}">${formatNumber(asset.score, 2)}</div>
+                <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Score</div>
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-700/50">
+              <p class="text-sm text-slate-300 font-medium italic">"${reason}"</p>
+            </div>
+          </a>
+         `;
+      };
+
+      document.getElementById('top-opps').innerHTML = top5.map(a => buildCard(a, true)).join('');
+      document.getElementById('risk-alerts').innerHTML = bottom5.map(a => buildCard(a, false)).join('');
+
+      // Render Table
+      const renderTable = (sortMethod) => {
+        let toSort = [...enrichedData];
+        if (sortMethod === 'score_desc') toSort.sort((a, b) => b.score - a.score);
+        else if (sortMethod === 'score_asc') toSort.sort((a, b) => a.score - b.score);
+        else if (sortMethod === 'sent_desc') toSort.sort((a, b) => b.sentiment - a.sentiment);
+        else if (sortMethod === 'vol_desc') toSort.sort((a, b) => b.vol - a.vol);
+
+        const tbody = document.getElementById('screener-tbody');
+        tbody.innerHTML = '';
+
+        toSort.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.className = "hover:bg-slate-800/80 transition-colors group cursor-pointer";
+          tr.onclick = () => window.location.href = `stock.html?ticker=${row.ticker}`;
+
+          const colorClass = (val) => {
+            if (val > 0.05) return 'text-green-400 drop-shadow';
+            if (val < -0.05) return 'text-red-400 drop-shadow';
+            return 'text-yellow-400';
+          };
+
+          const bgClass = (val) => {
+            if (val >= 25) return 'bg-green-900/60 text-green-300 border-green-500/50';
+            if (val <= -25) return 'bg-red-900/60 text-red-300 border-red-500/50';
+            return 'bg-yellow-900/40 text-yellow-300 border-yellow-500/50';
+          };
+
+          const formatOrNA = (v) => isNaN(v) ? 'N/A' : v.toFixed(3);
+
+          tr.innerHTML = `
+              <td class="px-6 py-4 font-black text-white text-lg group-hover:text-blue-400 transition-colors">${row.ticker}</td>
+              <td class="px-6 py-4 font-bold text-slate-300 text-sm tracking-wide">${row.label}</td>
+              <td class="px-6 py-4 text-purple-300 font-bold uppercase text-xs tracking-widest">${row.regime}</td>
+              <td class="px-6 py-4 text-right">
+                <span class="px-3 py-1 font-black text-sm rounded border shadow-sm inline-block min-w-[3rem] text-center ${bgClass(row.sentiment)}">${row.sentiment.toFixed(1)}</span>
+              </td>
+              <td class="px-6 py-4 font-mono font-bold text-right ${colorClass(row.ret * 100)}">${formatOrNA(row.ret)}</td>
+              <td class="px-6 py-4 font-mono font-bold text-slate-300 text-right">${formatOrNA(row.vol)}</td>
+              <td class="px-6 py-4 font-mono font-bold text-right ${colorClass(row.mom)}">${formatOrNA(row.mom)}</td>
+              <td class="px-6 py-4 font-mono font-black text-lg text-right bg-slate-800/50 ${colorClass(row.score)}">${formatOrNA(row.score)}</td>
+            `;
+          tbody.appendChild(tr);
+        });
+      };
+
+      document.getElementById('sort-select').addEventListener('change', (e) => {
+        renderTable(e.target.value);
+      });
+
+      // initial render
+      renderTable('score_desc');
+      document.getElementById('metrics-loader').style.display = 'none';
+
+    });
+  </script>
+</body>
+
+</html>
