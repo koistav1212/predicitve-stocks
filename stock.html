@@ -81,12 +81,8 @@
   <nav class="sticky top-0 z-50 bg-slate-900/95 border-b border-slate-800 backdrop-blur pb-5 pt-5 px-8 shadow-md">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-4">
-        <div
-          class="w-10 h-10 rounded shadow-[0_0_15px_rgba(37,99,235,0.6)] bg-blue-600 flex items-center justify-center font-bold text-lg">
-          T
-        </div>
-        <span class="text-2xl font-bold tracking-tight text-white">Terminal <span
-            class="text-slate-400 font-light">Analytics</span></span>
+        <img src="portfoliohub_logo_.jpeg" alt="PortfolioHub Logo"
+          class="h-16 md:h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]">
       </div>
 
       <div class="flex items-center gap-5 w-full md:w-auto">
@@ -337,9 +333,9 @@
               <thead class="text-slate-400 uppercase bg-slate-900/40 rounded">
                 <tr>
                   <th class="px-5 py-4 font-bold tracking-wider">Algorithm</th>
-                  <th class="px-5 py-4 font-bold tracking-wider text-right">Acc</th>
-                  <th class="px-5 py-4 font-bold tracking-wider text-right hidden sm:table-cell">Prec</th>
-                  <th class="px-5 py-4 font-bold tracking-wider text-right hidden sm:table-cell">Rec</th>
+                  <th class="px-5 py-4 font-bold tracking-wider text-right">Accuracy</th>
+                  <th class="px-5 py-4 font-bold tracking-wider text-right hidden sm:table-cell">Precision</th>
+                  <th class="px-5 py-4 font-bold tracking-wider text-right hidden sm:table-cell">Recall</th>
                   <th class="px-5 py-4 font-bold tracking-wider text-right">F1</th>
                   <th class="px-5 py-4 font-bold tracking-wider text-right text-blue-400">ROC</th>
                 </tr>
@@ -409,11 +405,17 @@
   </main>
 
   <!-- Image Modal -->
-  <div id="image-modal" class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-sm hidden flex items-center justify-center p-4 md:p-10 opacity-0 transition-opacity duration-300">
-    <button id="modal-close" class="absolute top-6 right-6 md:top-10 md:right-10 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 p-2 rounded-full transition">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+  <div id="image-modal"
+    class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-sm hidden flex items-center justify-center p-4 md:p-10 opacity-0 transition-opacity duration-300">
+    <button id="modal-close"
+      class="absolute top-6 right-6 md:top-10 md:right-10 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 p-2 rounded-full transition">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
     </button>
-    <img id="modal-img" src="" class="max-w-full max-h-full rounded-2xl shadow-2xl object-contain border border-slate-700" alt="Expanded Preview">
+    <img id="modal-img" src=""
+      class="max-w-full max-h-full rounded-2xl shadow-2xl object-contain border border-slate-700"
+      alt="Expanded Preview">
   </div>
 
   <script src="static/app.js"></script>
