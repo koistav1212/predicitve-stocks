@@ -432,15 +432,12 @@
         let score = parseFloat(row.Score || row['composite score'] || row.composite_score || 0);
 
         let mom = ret * spike * 100;
-        
-        let rollingSentiment = score; // Using score as the sentiment proxy
-        let finalSentScore = (rollingSentiment + 1) * 50;
-        
-        let sentiment = finalSentScore; // 0 to 100 scale
+        let sentiment = parseFloat(row.Sentiment_Final || 50);
+
         if (sentiment > 100) sentiment = 100;
         if (sentiment < 0) sentiment = 0;
 
-        let rawSentiment = rollingSentiment;
+        let rawSentiment = sentiment;
 
         let lblLow = label.toLowerCase();
         let isBull = lblLow.includes('bull') || lblLow.includes('up');
