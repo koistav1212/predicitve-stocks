@@ -86,13 +86,13 @@
       </div>
 
       <div class="flex items-center gap-5 w-full md:w-auto">
-        <label for="ticker-select" class="text-base font-semibold text-slate-300 hidden md:block">Asset:</label>
+        <label for="ticker-select" class="text-base font-semibold text-white hidden md:block">Asset:</label>
         <select id="ticker-select"
           class="w-full md:w-72 bg-slate-800 border border-slate-700 text-white text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-3 outline-none transition-colors">
           <option value="" disabled selected>Loading tickers...</option>
         </select>
         <a href="index.html"
-          class="text-sm font-semibold text-slate-300 hover:text-blue-400 transition ml-2 border border-slate-700 px-4 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 shadow-sm">Dashboard</a>
+          class="text-sm font-semibold text-white hover:text-blue-400 transition ml-2 border border-slate-700 px-4 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 shadow-sm">Dashboard</a>
       </div>
     </div>
   </nav>
@@ -100,7 +100,7 @@
   <!-- Loader -->
   <div id="loader" class="fixed inset-0 z-40 bg-slate-900 flex flex-col items-center justify-center">
     <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mb-6"></div>
-    <div class="text-slate-300 text-lg font-semibold tracking-wide">Syncing Market Data...</div>
+    <div class="text-white text-lg font-semibold tracking-wide">Syncing Market Data...</div>
   </div>
 
   <main id="main-content"
@@ -149,37 +149,37 @@
 
         <div class="glass-card rounded-2xl p-8 glow-blue flex flex-col justify-between min-h-[160px]">
           <div>
-            <p class="text-sm uppercase text-slate-400 font-bold tracking-widest mb-2">Final Label</p>
+            <p class="text-sm uppercase text-white font-bold tracking-widest mb-2">Final Label</p>
             <div id="kpi-label" class="text-2xl font-extrabold text-white mb-3">---</div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed font-medium">Indicates overall behavioral classification of
+          <p class="text-xs text-white leading-relaxed font-medium">Indicates overall behavioral classification of
             the stock.</p>
         </div>
 
         <div class="glass-card rounded-2xl p-8 glow-purple flex flex-col justify-between min-h-[160px]">
           <div>
-            <p class="text-sm uppercase text-slate-400 font-bold tracking-widest mb-2">Dominant Regime</p>
+            <p class="text-sm uppercase text-white font-bold tracking-widest mb-2">Dominant Regime</p>
             <div id="kpi-regime" class="text-2xl font-extrabold text-white mb-3">---</div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed font-medium">Represents prevailing market condition derived
+          <p class="text-xs text-white leading-relaxed font-medium">Represents prevailing market condition derived
             from clustering.</p>
         </div>
 
         <div class="glass-card rounded-2xl p-8 glow-green flex flex-col justify-between min-h-[160px]">
           <div>
-            <p class="text-sm uppercase text-slate-400 font-bold tracking-widest mb-2">Composite Score</p>
+            <p class="text-sm uppercase text-white font-bold tracking-widest mb-2">Composite Score</p>
             <div id="kpi-score" class="text-4xl font-extrabold text-white mb-3">---</div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed font-medium">Composite score combining momentum, volatility,
+          <p class="text-xs text-white leading-relaxed font-medium">Composite score combining momentum, volatility,
             and returns.</p>
         </div>
 
         <div class="glass-card rounded-2xl p-8 glow-orange flex flex-col justify-between min-h-[160px]">
           <div>
-            <p class="text-sm uppercase text-slate-400 font-bold tracking-widest mb-2">Volatility (10D)</p>
+            <p class="text-sm uppercase text-white font-bold tracking-widest mb-2">Volatility (10D)</p>
             <div id="kpi-volatility" class="text-4xl font-extrabold text-white mb-3">---</div>
           </div>
-          <p class="text-xs text-slate-400 leading-relaxed font-medium">Higher volatility implies higher risk and severe
+          <p class="text-xs text-white leading-relaxed font-medium">Higher volatility implies higher risk and severe
             price fluctuation.</p>
         </div>
 
@@ -193,29 +193,29 @@
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
 
         <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700/60 shadow-md">
-          <div class="text-sm text-slate-400 font-bold uppercase tracking-wider mb-2">Avg Return (1D)</div>
+          <div class="text-sm text-white font-bold uppercase tracking-wider mb-2">Avg Return (1D)</div>
           <div id="tech-return" class="text-2xl font-extrabold mb-3">---</div>
-          <div class="text-xs text-slate-500 leading-relaxed font-medium">Daily average return reflecting immediate
+          <div class="text-xs text-white leading-relaxed font-medium">Daily average return reflecting immediate
             profitability.</div>
         </div>
 
         <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700/60 shadow-md">
-          <div class="text-sm text-slate-400 font-bold uppercase tracking-wider mb-2">Trend (5D)</div>
+          <div class="text-sm text-white font-bold uppercase tracking-wider mb-2">Trend (5D)</div>
           <div id="tech-trend" class="text-2xl font-extrabold mb-3">---</div>
-          <div class="text-xs text-slate-500 leading-relaxed font-medium">5-day directional strength capture.</div>
+          <div class="text-xs text-white leading-relaxed font-medium">5-day directional strength capture.</div>
         </div>
 
         <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700/60 shadow-md">
-          <div class="text-sm text-slate-400 font-bold uppercase tracking-wider mb-2">Momentum Estimator</div>
+          <div class="text-sm text-white font-bold uppercase tracking-wider mb-2">Momentum Estimator</div>
           <div id="tech-momentum" class="text-2xl font-extrabold mb-3">---</div>
-          <div class="text-xs text-slate-500 leading-relaxed font-medium">Acceleration factor of current price movement.
+          <div class="text-xs text-white leading-relaxed font-medium">Acceleration factor of current price movement.
           </div>
         </div>
 
         <div class="bg-slate-800/60 rounded-xl p-6 border border-slate-700/60 shadow-md">
-          <div class="text-sm text-slate-400 font-bold uppercase tracking-wider mb-2">Volume Spike</div>
+          <div class="text-sm text-white font-bold uppercase tracking-wider mb-2">Volume Spike</div>
           <div id="tech-volume" class="text-2xl font-extrabold mb-3">---</div>
-          <div class="text-xs text-slate-500 leading-relaxed font-medium">Sudden surges that often precede major
+          <div class="text-xs text-white leading-relaxed font-medium">Sudden surges that often precede major
             breakouts.</div>
         </div>
 
@@ -225,7 +225,7 @@
     <!-- SECTION 5: VISUAL ANALYTICS (GRAPHS) -->
     <section>
       <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4 flex items-center gap-3">
-        <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
         </svg>
@@ -244,10 +244,10 @@
             <img id="img-price" src="" alt="Price Chart" class="w-full h-80 object-contain rounded-xl"
               onerror="this.style.opacity='0'; this.nextElementSibling.style.display='flex'">
             <div
-              class="absolute inset-0 flex items-center justify-center text-slate-500 text-lg hidden font-bold tracking-widest uppercase">
+              class="absolute inset-0 flex items-center justify-center text-white text-lg hidden font-bold tracking-widest uppercase">
               Visualization Unavailable</div>
           </div>
-          <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2">
+          <p class="mt-6 text-base text-white leading-relaxed font-medium px-2">
             <span class="text-blue-400 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
             Shows long-term trend; SMA cross-over events strongly indicate sustained bullish or bearish macro pivots.
           </p>
@@ -262,10 +262,10 @@
             <img id="img-rsi" src="" alt="RSI Chart" class="w-full h-80 object-contain rounded-xl"
               onerror="this.style.opacity='0'; this.nextElementSibling.style.display='flex'">
             <div
-              class="absolute inset-0 flex items-center justify-center text-slate-500 text-lg hidden font-bold tracking-widest uppercase">
+              class="absolute inset-0 flex items-center justify-center text-white text-lg hidden font-bold tracking-widest uppercase">
               Visualization Unavailable</div>
           </div>
-          <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2">
+          <p class="mt-6 text-base text-white leading-relaxed font-medium px-2">
             <span class="text-green-400 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
             Calculates momentum shifts. Sustained <span class="text-orange-400 font-bold">>70</span> = dangerously
             overbought territory; <span class="text-blue-400 font-bold">
@@ -282,10 +282,10 @@
             <img id="img-volatility" src="" alt="Volatility Chart" class="w-full h-80 object-contain rounded-xl"
               onerror="this.style.opacity='0'; this.nextElementSibling.style.display='flex'">
             <div
-              class="absolute inset-0 flex items-center justify-center text-slate-500 text-lg hidden font-bold tracking-widest uppercase">
+              class="absolute inset-0 flex items-center justify-center text-white text-lg hidden font-bold tracking-widest uppercase">
               Visualization Unavailable</div>
           </div>
-          <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2">
+          <p class="mt-6 text-base text-white leading-relaxed font-medium px-2">
             <span class="text-orange-400 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
             Rolling volatility (σ²) captures regime instability. Sudden spikes indicate information shocks or
             institutional repositioning.
@@ -302,10 +302,10 @@
               class="w-full h-[28rem] object-contain rounded-xl"
               onerror="this.style.opacity='0'; this.nextElementSibling.style.display='flex'">
             <div
-              class="absolute inset-0 flex items-center justify-center text-slate-500 text-lg hidden font-bold tracking-widest uppercase">
+              class="absolute inset-0 flex items-center justify-center text-white text-lg hidden font-bold tracking-widest uppercase">
               Visualization Unavailable</div>
           </div>
-          <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2 max-w-4xl">
+          <p class="mt-6 text-base text-white leading-relaxed font-medium px-2 max-w-4xl">
             <span class="text-blue-300 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
             Weak correlation confirms non-linear relationship between news volume and returns, reinforcing need for
             ML-based modeling over linear assumptions.
@@ -320,7 +320,7 @@
     <section>
       <div class="mb-8 border-b border-slate-800 pb-4">
         <h2 class="text-3xl font-bold text-white mb-2">Predictive Evaluation Matrix</h2>
-        <p class="text-slate-400 text-lg font-medium italic">Model performance evaluated under strict temporal
+        <p class="text-white text-lg font-medium italic">Model performance evaluated under strict temporal
           validation to simulate real-market conditions (no future leakage).</p>
       </div>
 
@@ -340,7 +340,7 @@
           </div>
           <div class="overflow-x-auto p-4">
             <table class="w-full text-left text-sm whitespace-nowrap">
-              <thead class="text-slate-400 uppercase bg-slate-900/40 rounded">
+              <thead class="text-white uppercase bg-slate-900/40 rounded">
                 <tr>
                   <th class="px-5 py-4 font-bold tracking-wider">Algorithm</th>
                   <th class="px-5 py-4 font-bold tracking-wider text-right">Accuracy</th>
@@ -370,7 +370,7 @@
           </div>
           <div class="overflow-x-auto p-4">
             <table class="w-full text-left text-sm whitespace-nowrap">
-              <thead class="text-slate-400 uppercase bg-slate-900/40 rounded">
+              <thead class="text-white uppercase bg-slate-900/40 rounded">
                 <tr>
                   <th class="px-5 py-4 font-bold tracking-wider">Algorithm</th>
                   <th class="px-5 py-4 font-bold tracking-wider text-right">RMSE</th>
@@ -390,7 +390,7 @@
       <!-- Realistic Market Insights Panel -->
       <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-slate-800/50 rounded-2xl p-6 border-l-4 border-l-green-500 shadow-md">
-          <p class="text-sm text-slate-300 leading-relaxed font-medium">
+          <p class="text-sm text-white leading-relaxed font-medium">
             <strong class="text-white block mb-2 text-lg uppercase tracking-wider font-extrabold">Ensembles <span
                 class="text-xs text-green-400 ml-2">(60%-68%)</span></strong>
             Random Forest actively handles non-linear noise, outputting highly realistic 60-68% accuracy — extremely
@@ -398,7 +398,7 @@
           </p>
         </div>
         <div class="bg-slate-800/50 rounded-2xl p-6 border-l-4 border-l-purple-500 shadow-md">
-          <p class="text-sm text-slate-300 leading-relaxed font-medium">
+          <p class="text-sm text-white leading-relaxed font-medium">
             <strong class="text-white block mb-2 text-lg uppercase tracking-wider font-extrabold">Support Vectors <span
                 class="text-xs text-purple-400 ml-2">(50%-60%)</span></strong>
             SVM maintains a conservative baseline (50-60%), establishing fundamentally verified generalization against
@@ -406,9 +406,9 @@
           </p>
         </div>
         <div class="bg-slate-800/50 rounded-2xl p-6 border-l-4 border-l-slate-500 shadow-md">
-          <p class="text-sm text-slate-300 leading-relaxed font-medium">
+          <p class="text-sm text-white leading-relaxed font-medium">
             <strong class="text-white block mb-2 text-lg uppercase tracking-wider font-extrabold">Regression Reality
-              <span class="text-xs text-slate-400 ml-2">(near 0 R²)</span></strong>
+              <span class="text-xs text-white ml-2">(near 0 R²)</span></strong>
             Linear baseline R² rests efficiently near 0. This is the mathematically sound norm for noisy short-term
             price delta predictions over strict timelines.
           </p>
@@ -433,7 +433,7 @@
       </div>
 
       <div class="mt-8 glass-card rounded-2xl p-6 border-l-4 border-l-yellow-500 shadow-md">
-        <p class="text-base text-slate-300 leading-relaxed font-medium">
+        <p class="text-base text-white leading-relaxed font-medium">
           <strong class="text-white uppercase tracking-wider font-extrabold mr-2">Insight:</strong>
           These algorithmic rules identify high-probability multi-variable patterns specific to <span
             id="rules-ticker-insight" class="text-yellow-400 font-bold">this asset</span>. Strong confidence (>80%)
@@ -449,7 +449,7 @@
       <!-- Key Insights -->
       <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden flex flex-col">
         <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Key Insights & Discussion</h2>
-        <ul class="space-y-4 text-slate-300 font-medium">
+        <ul class="space-y-4 text-white font-medium">
           <li class="flex items-start gap-3">
             <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -486,14 +486,14 @@
       <!-- Conclusion & Future Scope -->
       <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden flex flex-col">
         <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Conclusion & Future Scope</h2>
-        <p class="text-slate-300 font-medium mb-6">
+        <p class="text-white font-medium mb-6">
           This system demonstrates a scalable framework for integrating unstructured news with structured financial data
           for predictive analytics.
         </p>
         <div class="grid grid-cols-2 gap-6">
           <div>
             <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-sm">Key Contributions</h4>
-            <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm font-medium">
+            <ul class="list-disc pl-5 space-y-1 text-white text-sm font-medium">
               <li>End-to-end pipeline (scraping → NLP → ML → dashboard)</li>
               <li>Realistic evaluation (no leakage)</li>
               <li>Multi-factor signal modeling</li>
@@ -501,7 +501,7 @@
           </div>
           <div>
             <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-sm">Limitations</h4>
-            <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm font-medium">
+            <ul class="list-disc pl-5 space-y-1 text-white text-sm font-medium">
               <li>Generic sentiment model (TextBlob)</li>
               <li>Limited dataset scale</li>
             </ul>
@@ -509,7 +509,7 @@
         </div>
         <div class="mt-6 pt-4 border-t border-slate-700/50">
           <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-sm">Future Enhancements</h4>
-          <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm font-medium">
+          <ul class="list-disc pl-5 space-y-1 text-white text-sm font-medium">
             <li>FinBERT (finance-specific NLP)</li>
             <li>XGBoost / LSTM for temporal learning</li>
             <li>Real-time streaming pipeline</li>
@@ -526,7 +526,7 @@
   <div id="image-modal"
     class="fixed inset-0 z-[100] bg-slate-950/90 backdrop-blur-sm hidden flex items-center justify-center p-4 md:p-10 opacity-0 transition-opacity duration-300">
     <button id="modal-close"
-      class="absolute top-6 right-6 md:top-10 md:right-10 text-slate-400 hover:text-white bg-slate-800/50 hover:bg-slate-700 p-2 rounded-full transition">
+      class="absolute top-6 right-6 md:top-10 md:right-10 text-white hover:text-white bg-slate-800/50 hover:bg-slate-700 p-2 rounded-full transition">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
@@ -547,10 +547,10 @@
 
     const formatColor = (val) => {
       const n = parseFloat(val);
-      if (isNaN(n)) return 'text-slate-400';
+      if (isNaN(n)) return 'text-white';
       if (n > 0) return 'text-green-400';
       if (n < 0) return 'text-red-400';
-      return 'text-slate-400';
+      return 'text-white';
     };
 
     let summaryData = [];
@@ -721,11 +721,11 @@
       clsModels.forEach(m => {
         classBody.innerHTML += `
           <tr class="hover:bg-slate-700/60 transition group cursor-default">
-            <td class="px-5 py-4 font-bold text-slate-300 group-hover:text-white uppercase tracking-wider">${m.Model}</td>
+            <td class="px-5 py-4 font-bold text-white group-hover:text-white uppercase tracking-wider">${m.Model}</td>
             <td class="px-5 py-4 text-right text-green-400 font-mono text-base font-extrabold drop-shadow">${formatNumber(m.Accuracy)}</td>
-            <td class="px-5 py-4 text-right text-slate-400 font-mono hidden sm:table-cell group-hover:text-slate-300">${formatNumber(m.Precision)}</td>
-            <td class="px-5 py-4 text-right text-slate-400 font-mono hidden sm:table-cell group-hover:text-slate-300">${formatNumber(m.Recall)}</td>
-            <td class="px-5 py-4 text-right text-slate-300 font-mono font-bold">${formatNumber(m.F1)}</td>
+            <td class="px-5 py-4 text-right text-white font-mono hidden sm:table-cell group-hover:text-white">${formatNumber(m.Precision)}</td>
+            <td class="px-5 py-4 text-right text-white font-mono hidden sm:table-cell group-hover:text-white">${formatNumber(m.Recall)}</td>
+            <td class="px-5 py-4 text-right text-white font-mono font-bold">${formatNumber(m.F1)}</td>
             <td class="px-5 py-4 text-right text-blue-300 font-mono font-extrabold drop-shadow-[0_0_5px_rgba(96,165,250,0.5)] bg-blue-900/10">${formatNumber(m.ROC_AUC)}</td>
           </tr>
         `;
@@ -733,13 +733,13 @@
 
       regModels.forEach(m => {
         const r2 = parseFloat(m.R2);
-        const r2Color = r2 > 0.5 ? 'text-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.5)]' : 'text-slate-400';
+        const r2Color = r2 > 0.5 ? 'text-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.5)]' : 'text-white';
 
         regBody.innerHTML += `
           <tr class="hover:bg-slate-700/60 transition group cursor-default">
-            <td class="px-5 py-4 font-bold text-slate-300 group-hover:text-white uppercase tracking-wider">${m.Model}</td>
-            <td class="px-5 py-4 text-right text-slate-400 font-mono font-medium">${formatNumber(m.RMSE)}</td>
-            <td class="px-5 py-4 text-right text-slate-400 font-mono font-medium">${formatNumber(m.MAE)}</td>
+            <td class="px-5 py-4 font-bold text-white group-hover:text-white uppercase tracking-wider">${m.Model}</td>
+            <td class="px-5 py-4 text-right text-white font-mono font-medium">${formatNumber(m.RMSE)}</td>
+            <td class="px-5 py-4 text-right text-white font-mono font-medium">${formatNumber(m.MAE)}</td>
             <td class="px-5 py-4 text-right font-mono text-base font-extrabold bg-slate-900/40 ${r2Color}">${formatNumber(m.R2)}</td>
           </tr>
         `;
@@ -753,49 +753,49 @@
       if (rulesInsightTicker) rulesInsightTicker.textContent = ticker;
 
       if (!tRules || tRules.length === 0) {
-        rulesContainer.innerHTML = `<div class="col-span-full text-slate-500 italic font-medium p-8 text-center bg-slate-800/20 rounded-2xl border border-slate-700/50">No significant association patterns discovered for this asset under current thresholds.</div>`;
+        rulesContainer.innerHTML = `<div class="col-span-full text-white italic font-medium p-8 text-center bg-slate-800/20 rounded-2xl border border-slate-700/50">No significant association patterns discovered for this asset under current thresholds.</div>`;
       } else {
         // Sort by score descending
         tRules.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
 
         rulesContainer.innerHTML = tRules.slice(0, 6).map((rule, idx) => {
-          const ant = (rule.antecedents || '').replace(/_/g, ' ').replace(/"/g, '').split(',').map(s => `<span class="bg-blue-900/40 text-blue-300 border border-blue-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block mb-1">${s.trim()}</span>`).join(' <span class="text-slate-500 mx-1 text-xs">+</span> ');
+          const ant = (rule.antecedents || '').replace(/_/g, ' ').replace(/"/g, '').split(',').map(s => `<span class="bg-blue-900/40 text-blue-300 border border-blue-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block mb-1">${s.trim()}</span>`).join(' <span class="text-white mx-1 text-xs">+</span> ');
 
           const con = (rule.consequents || '').replace(/_/g, ' ').replace(/"/g, '').split(',').map(s => {
             const isUp = s.toUpperCase().includes('UP');
             const color = isUp ? 'green' : 'red';
             return `<span class="bg-${color}-900/40 text-${color}-300 border border-${color}-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block">${s.trim()}</span>`;
-          }).join(' <span class="text-slate-500 mx-1 text-xs">+</span> ');
+          }).join(' <span class="text-white mx-1 text-xs">+</span> ');
 
           return `
             <div class="glass-card rounded-2xl p-6 border border-slate-700/50 flex flex-col justify-between hover:border-yellow-500/50 transition-colors group">
               <div>
-                <div class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-3">Pattern #${idx + 1}</div>
+                <div class="text-xs text-white font-bold uppercase tracking-widest mb-3">Pattern #${idx + 1}</div>
                 <div class="flex flex-col gap-3 mb-6">
                   <div>
-                    <div class="text-[10px] uppercase text-slate-400 font-bold mb-2">If (Condition)</div>
+                    <div class="text-[10px] uppercase text-white font-bold mb-2">If (Condition)</div>
                     <div class="flex flex-wrap items-center">${ant}</div>
                   </div>
-                  <div class="flex text-slate-600">
+                  <div class="flex text-white">
                     <svg class="w-5 h-5 group-hover:text-yellow-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                   </div>
                   <div>
-                    <div class="text-[10px] uppercase text-slate-400 font-bold mb-2">Then (Outcome)</div>
+                    <div class="text-[10px] uppercase text-white font-bold mb-2">Then (Outcome)</div>
                     <div class="flex flex-wrap items-center">${con}</div>
                   </div>
                 </div>
               </div>
               <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-700/50">
                 <div class="text-center">
-                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Support</div>
+                  <div class="text-[10px] text-white font-bold uppercase tracking-wider">Support</div>
                   <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.support) * 100).toFixed(1)}%</div>
                 </div>
                 <div class="text-center border-l border-r border-slate-700/50">
-                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Confidence</div>
+                  <div class="text-[10px] text-white font-bold uppercase tracking-wider">Confidence</div>
                   <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.confidence) * 100).toFixed(1)}%</div>
                 </div>
                 <div class="text-center">
-                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Lift</div>
+                  <div class="text-[10px] text-white font-bold uppercase tracking-wider">Lift</div>
                   <div class="text-sm font-mono font-bold text-yellow-400 mt-1">${parseFloat(rule.lift).toFixed(2)}</div>
                 </div>
               </div>

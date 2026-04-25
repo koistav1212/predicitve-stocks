@@ -110,7 +110,7 @@
     <header class="flex flex-col border-b border-slate-800 pb-12">
       <h1 class="text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-4 drop-shadow-md">Market Intelligence
         Dashboard</h1>
-      <p class="text-slate-400 text-2xl font-medium max-w-4xl leading-relaxed mb-10">
+      <p class="text-white text-2xl font-medium max-w-4xl leading-relaxed mb-10">
         A multi-factor predictive intelligence system integrating financial news semantics, technical signals, and
         volatility regimes to forecast short-term market direction (T+3 horizon).
       </p>
@@ -118,7 +118,7 @@
       <div id="hero-badges" class="w-full mt-8">
         <!-- JS Populated -->
         <div class="glass-card rounded-2xl p-6 glow-badge">
-          <div class="text-xs uppercase font-extrabold text-slate-400 tracking-widest mb-2">Analyzing Markets...</div>
+          <div class="text-xs uppercase font-extrabold text-white tracking-widest mb-2">Analyzing Markets...</div>
           <div class="h-8 bg-slate-800 rounded animate-pulse w-1/2"></div>
         </div>
       </div>
@@ -150,11 +150,11 @@
           </svg>
           Problem Statement & Objective
         </h2>
-        <p class="text-slate-300 text-lg leading-relaxed font-medium mb-4">
+        <p class="text-white text-lg leading-relaxed font-medium mb-4">
           Financial markets exhibit high sensitivity to unstructured information such as news, earnings announcements,
           and macro events. Traditional models fail to incorporate semantic signals effectively.
         </p>
-        <p class="text-slate-300 text-lg leading-relaxed font-medium">
+        <p class="text-white text-lg leading-relaxed font-medium">
           This project addresses the challenge of predicting short-term stock movement (T+3) by integrating structured
           technical indicators with unstructured news sentiment using machine learning.
         </p>
@@ -178,7 +178,7 @@
                   d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4">
                 </path>
               </svg></div>
-            <div><strong class="text-white">Data Pipeline:</strong> <span class="text-slate-400">Integrated multi-source
+            <div><strong class="text-white">Data Pipeline:</strong> <span class="text-white">Integrated multi-source
                 financial data pipeline combining Economic Times & CNBC news scraping (keyword-filtered, MD5
                 deduplicated ~1200 articles) with Yahoo Finance OHLCV data (2023–present) aligned at daily
                 frequency</span></div>
@@ -191,7 +191,7 @@
                   d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
                 </path>
               </svg></div>
-            <div><strong class="text-white">Feature Engineering:</strong> <span class="text-slate-400">Derived
+            <div><strong class="text-white">Feature Engineering:</strong> <span class="text-white">Derived
                 predictive signals including returns, trend strength, momentum (3D/5D), volatility (5D/10D), volume
                 spike, RSI, MACD, Bollinger width, and aggregated sentiment polarity features</span></div>
           </div>
@@ -203,11 +203,22 @@
                   d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
                 </path>
               </svg></div>
-            <div><strong class="text-white">Leakage Prevention:</strong> <span class="text-slate-400">Strict temporal
+            <div><strong class="text-white">Leakage Prevention:</strong> <span class="text-white">Strict temporal
                 alignment using lagged features (t-1) ensuring models only learn from past data and simulate real-world
                 forward prediction</span></div>
           </div>
-
+          <div class="flex items-start gap-3">
+            <div class="bg-blue-500/20 text-blue-400 p-1.5 rounded mt-0.5"><svg class="w-4 h-4" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4">
+                </path>
+              </svg></div>
+            <div><strong class="text-white">K-Means Clustering:</strong> <span class="text-white">K-Means clustering
+                is applied on engineered market features (returns, volatility, momentum, volume signals) to identify
+                hidden behavioral patterns in stock movements without predefined labels.
+              </span></div>
+          </div>
           <div class="flex items-start gap-3">
             <div class="bg-blue-500/20 text-blue-400 p-1.5 rounded mt-0.5"><svg class="w-4 h-4" fill="none"
                 stroke="currentColor" viewBox="0 0 24 24">
@@ -215,7 +226,7 @@
                   d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
                 </path>
               </svg></div>
-            <div><strong class="text-white">Models:</strong> <span class="text-slate-400">Supervised learning using
+            <div><strong class="text-white">Models:</strong> <span class="text-white">Supervised learning using
                 Decision Tree, Random Forest, SVM, and Naive Bayes for classification, along with Linear and Ridge
                 Regression for return magnitude prediction</span></div>
           </div>
@@ -226,7 +237,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
                 </path>
               </svg></div>
-            <div><strong class="text-white">Target:</strong> <span class="text-slate-400">Short-term forecasting of
+            <div><strong class="text-white">Target:</strong> <span class="text-white">Short-term forecasting of
                 stock behavior including directional movement (3-day UP/DOWN classification) and return magnitude
                 estimation for risk-adjusted decision support</span></div>
           </div>
@@ -261,7 +272,7 @@
 
     <!-- 4 & 5. OPPORTUNITIES & RISK ALERTS -->
     <section class="space-y-8">
-      <p class="text-slate-400 text-lg font-medium italic border-b border-slate-800 pb-6 text-center">
+      <p class="text-white text-lg font-medium italic border-b border-slate-800 pb-6 text-center">
         Signal-driven asset ranking based on composite score: f(sentiment, momentum, volatility, volume anomaly)
       </p>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -314,7 +325,7 @@
               class="w-full max-h-[70vh] object-contain rounded-xl relative z-10 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
               onerror="this.style.display='none'">
           </div>
-          <p class="text-base text-slate-300 font-medium italic mt-6 text-center max-w-4xl px-4">
+          <p class="text-base text-white font-medium italic mt-6 text-center max-w-4xl px-4">
             <span class="text-blue-400 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
             Sentiment distribution derived using polarity scoring (TextBlob), aggregated at company level. Positive skew
             indicates news-driven bullish bias.
@@ -330,12 +341,12 @@
         class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 pb-4 border-b border-slate-800 gap-6">
         <div>
           <h2 class="text-4xl font-extrabold text-white">Live Asset Screener</h2>
-          <p class="text-slate-400 mt-2 font-medium">Real-time feature aggregation pipeline transforming raw signals
+          <p class="text-white mt-2 font-medium">Real-time feature aggregation pipeline transforming raw signals
             into predictive intelligence via lag-adjusted features to eliminate data leakage.</p>
         </div>
 
         <div class="flex items-center gap-3">
-          <span class="text-sm font-bold uppercase tracking-widest text-slate-400">Sort Matrix By:</span>
+          <span class="text-sm font-bold uppercase tracking-widest text-white">Sort Matrix By:</span>
           <select id="sort-select"
             class="bg-slate-800 border-2 border-slate-600 focus:border-blue-500 outline-none px-4 py-2 rounded-xl text-white font-bold transition-colors cursor-pointer shadow-inner">
             <option value="score_desc" selected>Composite Score (High to Low)</option>
@@ -354,7 +365,7 @@
 
         <div class="overflow-x-auto min-h-[400px]">
           <table class="w-full text-left whitespace-nowrap">
-            <thead class="text-slate-400 uppercase bg-slate-900/80 border-b border-slate-700 font-bold text-xs">
+            <thead class="text-white uppercase bg-slate-900/80 border-b border-slate-700 font-bold text-xs">
               <tr>
                 <th class="px-6 py-5 tracking-widest w-24">Ticker</th>
                 <th class="px-6 py-5 tracking-widest">Classification Label</th>
@@ -362,7 +373,7 @@
 
                 <th class="px-6 py-5 text-right tooltip-container">
                   <span class="border-b border-dotted border-slate-500">Sent. Score</span>
-                  <span class="tooltip-text">Average explicit NLP text polarity mapped from -100 to 100</span>
+                  <span class="tooltip-text">Final Sentiment Score mapped from 0 to 100</span>
                 </th>
 
                 <th class="px-6 py-5 text-right tooltip-container">
@@ -421,22 +432,32 @@
         let score = parseFloat(row.Score || row['composite score'] || row.composite_score || 0);
 
         let mom = ret * spike * 100;
-        let sentiment = score * 25; // Map roughly to -100 - +100
+        
+        let rollingSentiment = score; // Using score as the sentiment proxy
+        let finalSentScore = (rollingSentiment + 1) * 50;
+        
+        let sentiment = finalSentScore; // 0 to 100 scale
         if (sentiment > 100) sentiment = 100;
-        if (sentiment < -100) sentiment = -100;
+        if (sentiment < 0) sentiment = 0;
+
+        let rawSentiment = rollingSentiment;
 
         let lblLow = label.toLowerCase();
         let isBull = lblLow.includes('bull') || lblLow.includes('up');
         let isBear = lblLow.includes('bear') || lblLow.includes('down') || lblLow.includes('risk');
 
-        return { ticker, label, regime, ret, vol, spike, score, mom, sentiment, isBull, isBear };
+        return { ticker, label, regime, ret, vol, spike, score, mom, sentiment, rawSentiment, isBull, isBear };
       }).filter(r => r.ticker !== 'Unknown');
 
       // Global Stats
       let total = enrichedData.length;
       let totalBull = enrichedData.filter(r => r.isBull).length;
       let totalBear = enrichedData.filter(r => r.isBear).length;
-      let avgSent = enrichedData.reduce((acc, curr) => acc + curr.sentiment, 0) / total;
+      
+      let avgRawSent = enrichedData.reduce((acc, curr) => acc + curr.rawSentiment, 0) / total;
+      let finalSentScore = (avgRawSent + 1) * 50;
+      let avgSent = finalSentScore;
+      
       let avgVol = enrichedData.reduce((acc, curr) => acc + curr.vol, 0) / total;
 
       // Regime Distribution Calculation for Insight
@@ -475,7 +496,7 @@
             <p class="text-purple-200/80 text-sm font-medium mb-4 italic">Comparative signal decomposition across sentiment, momentum, volatility, and predictive score to identify relative alpha opportunities.</p>
             <div class="flex flex-col md:flex-row items-center gap-4 mt-2">
               <select id="vs-t1" class="w-full md:w-1/3 bg-slate-900/80 text-white text-lg font-bold rounded-xl p-3 outline-none border border-slate-700 shadow-inner cursor-pointer"></select>
-              <div class="text-slate-300 font-extrabold italic px-2 text-xl">VS</div>
+              <div class="text-white font-extrabold italic px-2 text-xl">VS</div>
               <select id="vs-t2" class="w-full md:w-1/3 bg-slate-900/80 text-white text-lg font-bold rounded-xl p-3 outline-none border border-slate-700 shadow-inner cursor-pointer"></select>
               <button onclick="window.location.href='compare.html?t1='+document.getElementById('vs-t1').value+'&t2='+document.getElementById('vs-t2').value" class="w-full md:w-auto bg-purple-600 hover:bg-purple-500 text-white text-lg font-black py-3 px-8 rounded-xl transition shadow-[0_0_15px_rgba(168,85,247,0.5)] border border-purple-400">Launch Comparison</button>
             </div>
@@ -493,10 +514,10 @@
       if (sortedTickers.length > 1) vs2.selectedIndex = 1;
 
       // Update  Insight
-      let sentimentStr = avgSent > 10 ? "markedly bullish" : (avgSent < -10 ? "notably bearish" : "slightly neutral");
+      let sentimentStr = avgSent > 60 ? "markedly bullish" : (avgSent < 40 ? "notably bearish" : "slightly neutral");
       let volStr = avgVol > 0.025 ? "high systemic volatility" : "moderate control volatility";
       document.getElementById('-insight-text').innerHTML =
-        `The system synthesizes cross-asset signals using a composite ML scoring engine. Current regime detection indicates a <strong class="text-purple-300 tracking-wide">${mainRegime}</strong> with <strong>${volStr}</strong>, while aggregated sentiment (news-driven) remains statistically bullish (μ_sent ≈ ${avgSent.toFixed(2)}), suggesting short-term continuation bias.`;
+        `The system synthesizes cross-asset signals using a composite ML scoring engine. Current regime detection indicates a <strong class="text-purple-300 tracking-wide">${mainRegime}</strong> with <strong>${volStr}</strong>, while aggregated sentiment (news-driven) remains ${sentimentStr} (μ_sent ≈ ${avgSent.toFixed(2)}), suggesting short-term continuation bias.`;
 
       // Top Opportunities & Risk
       let scoreSorted = [...enrichedData].sort((a, b) => b.score - a.score);
@@ -510,11 +531,11 @@
 
         let reason = "Solid regime tracking";
         if (isGood) {
-          if (asset.mom > 0.2 && asset.sentiment > 0) reason = "Explosive momentum + positive polarity score";
+          if (asset.mom > 0.2 && asset.sentiment > 50) reason = "Explosive momentum + positive polarity score";
           else if (asset.vol < 0.015) reason = "Low volatility stable technical setup";
           else reason = "Favorable ML Composite scoring edge";
         } else {
-          if (asset.vol > 0.025 && asset.sentiment < 0) reason = "Excessive variance mixed with bearish sentiment";
+          if (asset.vol > 0.025 && asset.sentiment < 50) reason = "Excessive variance mixed with bearish sentiment";
           else if (asset.mom < 0) reason = "Sustaining negative acceleration drag";
           else reason = "Structural downside risk flagged by engine";
         }
@@ -526,16 +547,16 @@
                 ${icon}
                 <div>
                   <h4 class="text-xl font-black text-white group-hover:text-${isGood ? 'green' : 'red'}-400 transition-colors">${asset.ticker}</h4>
-                  <p class="text-xs uppercase font-bold text-slate-400 tracking-wider">${asset.label}</p>
+                  <p class="text-xs uppercase font-bold text-white tracking-wider">${asset.label}</p>
                 </div>
               </div>
               <div class="text-right">
                 <div class="text-2xl font-black ${isGood ? 'text-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.5)]' : 'text-red-400 drop-shadow-[0_0_5px_rgba(248,113,113,0.5)]'}">${formatNumber(asset.score, 2)}</div>
-                <div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest">Score</div>
+                <div class="text-[10px] uppercase font-bold text-white tracking-widest">Score</div>
               </div>
             </div>
             <div class="mt-4 pt-3 border-t border-slate-700/50">
-              <p class="text-sm text-slate-300 font-medium italic">"${reason}"</p>
+              <p class="text-sm text-white font-medium italic">"${reason}"</p>
             </div>
           </a>
          `;
@@ -567,8 +588,8 @@
           };
 
           const bgClass = (val) => {
-            if (val >= 25) return 'bg-green-900/60 text-green-300 border-green-500/50';
-            if (val <= -25) return 'bg-red-900/60 text-red-300 border-red-500/50';
+            if (val >= 60) return 'bg-green-900/60 text-green-300 border-green-500/50';
+            if (val <= 40) return 'bg-red-900/60 text-red-300 border-red-500/50';
             return 'bg-yellow-900/40 text-yellow-300 border-yellow-500/50';
           };
 
@@ -576,13 +597,13 @@
 
           tr.innerHTML = `
               <td class="px-6 py-4 font-black text-white text-lg group-hover:text-blue-400 transition-colors">${row.ticker}</td>
-              <td class="px-6 py-4 font-bold text-slate-300 text-sm tracking-wide">${row.label}</td>
+              <td class="px-6 py-4 font-bold text-white text-sm tracking-wide">${row.label}</td>
               <td class="px-6 py-4 text-purple-300 font-bold uppercase text-xs tracking-widest">${row.regime}</td>
               <td class="px-6 py-4 text-right">
                 <span class="px-3 py-1 font-black text-sm rounded border shadow-sm inline-block min-w-[3rem] text-center ${bgClass(row.sentiment)}">${row.sentiment.toFixed(1)}</span>
               </td>
               <td class="px-6 py-4 font-mono font-bold text-right ${colorClass(row.ret * 100)}">${formatOrNA(row.ret)}</td>
-              <td class="px-6 py-4 font-mono font-bold text-slate-300 text-right">${formatOrNA(row.vol)}</td>
+              <td class="px-6 py-4 font-mono font-bold text-white text-right">${formatOrNA(row.vol)}</td>
               <td class="px-6 py-4 font-mono font-bold text-right ${colorClass(row.mom)}">${formatOrNA(row.mom)}</td>
               <td class="px-6 py-4 font-mono font-black text-lg text-right bg-slate-800/50 ${colorClass(row.score)}">${formatOrNA(row.score)}</td>
             `;
