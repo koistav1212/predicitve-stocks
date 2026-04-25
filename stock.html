@@ -407,6 +407,28 @@
       </div>
     </section>
 
+    <!-- SECTION: ASSOCIATION RULES -->
+    <section>
+      <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4 flex items-center gap-3">
+        <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+        </svg>
+        Market Pattern Rules (Association Mining)
+      </h2>
+      
+      <div id="rules-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <!-- JS Populated -->
+      </div>
+      
+      <div class="mt-8 glass-card rounded-2xl p-6 border-l-4 border-l-yellow-500 shadow-md">
+        <p class="text-base text-slate-300 leading-relaxed font-medium">
+          <strong class="text-white uppercase tracking-wider font-extrabold mr-2">Insight:</strong>
+          These algorithmic rules identify high-probability multi-variable patterns specific to <span id="rules-ticker-insight" class="text-yellow-400 font-bold">this asset</span>. Strong confidence (>80%) paired with high lift (>1.5) establishes non-random conditional triggers that historically precede significant price action.
+        </p>
+      </div>
+    </section>
+
     <!-- SECTION 7: DISCUSSION & CONCLUSION -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
       
@@ -504,10 +526,12 @@
 
     let summaryData = [];
     let modelData = [];
+    let rulesData = [];
 
     async function init() {
       summaryData = await fetchCSV('final_stock_summary.csv') || [];
       modelData = await fetchCSV('stock_model_results.csv') || [];
+      rulesData = await fetchCSV('final_meaningful_rules_per_stock.csv') || [];
 
       const select = document.getElementById('ticker-select');
       const uniqueTickers = [...new Set(summaryData.map(r => r.Ticker).filter(Boolean))];
@@ -691,6 +715,65 @@
           </tr>
         `;
       });
+
+      // 5. Association Rules
+      const tRules = rulesData.filter(r => r.Ticker === ticker);
+      const rulesContainer = document.getElementById('rules-container');
+      const rulesInsightTicker = document.getElementById('rules-ticker-insight');
+      
+      if (rulesInsightTicker) rulesInsightTicker.textContent = ticker;
+      
+      if (!tRules || tRules.length === 0) {
+        rulesContainer.innerHTML = `<div class="col-span-full text-slate-500 italic font-medium p-8 text-center bg-slate-800/20 rounded-2xl border border-slate-700/50">No significant association patterns discovered for this asset under current thresholds.</div>`;
+      } else {
+        // Sort by score descending
+        tRules.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+        
+        rulesContainer.innerHTML = tRules.slice(0, 6).map((rule, idx) => {
+          const ant = (rule.antecedents || '').replace(/_/g, ' ').replace(/"/g, '').split(',').map(s => `<span class="bg-blue-900/40 text-blue-300 border border-blue-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block mb-1">${s.trim()}</span>`).join(' <span class="text-slate-500 mx-1 text-xs">+</span> ');
+          
+          const con = (rule.consequents || '').replace(/_/g, ' ').replace(/"/g, '').split(',').map(s => {
+             const isUp = s.toUpperCase().includes('UP');
+             const color = isUp ? 'green' : 'red';
+             return `<span class="bg-${color}-900/40 text-${color}-300 border border-${color}-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block">${s.trim()}</span>`;
+          }).join(' <span class="text-slate-500 mx-1 text-xs">+</span> ');
+
+          return `
+            <div class="glass-card rounded-2xl p-6 border border-slate-700/50 flex flex-col justify-between hover:border-yellow-500/50 transition-colors group">
+              <div>
+                <div class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-3">Pattern #${idx+1}</div>
+                <div class="flex flex-col gap-3 mb-6">
+                  <div>
+                    <div class="text-[10px] uppercase text-slate-400 font-bold mb-2">If (Condition)</div>
+                    <div class="flex flex-wrap items-center">${ant}</div>
+                  </div>
+                  <div class="flex text-slate-600">
+                    <svg class="w-5 h-5 group-hover:text-yellow-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div>
+                    <div class="text-[10px] uppercase text-slate-400 font-bold mb-2">Then (Outcome)</div>
+                    <div class="flex flex-wrap items-center">${con}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-700/50">
+                <div class="text-center">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Support</div>
+                  <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.support)*100).toFixed(1)}%</div>
+                </div>
+                <div class="text-center border-l border-r border-slate-700/50">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Confidence</div>
+                  <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.confidence)*100).toFixed(1)}%</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Lift</div>
+                  <div class="text-sm font-mono font-bold text-yellow-400 mt-1">${parseFloat(rule.lift).toFixed(2)}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
     }
 
     document.addEventListener("DOMContentLoaded", init);
