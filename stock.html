@@ -287,17 +287,16 @@
           </div>
           <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2">
             <span class="text-orange-400 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
-            Volatility spikes fundamentally flag institutional uncertainty, highly reactive news flow, or significant
-            impending market breaks.
+            Rolling volatility (σ²) captures regime instability. Sudden spikes indicate information shocks or institutional repositioning.
           </p>
         </div>
 
         <!-- Graph 4: Correlation Heatmap -->
         <div class="glass-card rounded-3xl p-6 flex flex-col">
-          <h3 class="text-2xl font-bold text-white mb-4 pl-2 border-l-4 border-blue-400">Feature Correlation Matrix</h3>
+          <h3 class="text-2xl font-bold text-white mb-4 pl-2 border-l-4 border-blue-400">Volume vs Return Impact (Scatter)</h3>
           <div
             class="w-full bg-slate-800/80 rounded-2xl flex items-center justify-center p-6 relative border border-slate-700/50 min-h-[500px]">
-            <img id="img-correlation" src="" alt="Correlation Heatmap"
+            <img id="img-correlation" src="" alt="Volume vs Return Impact"
               class="w-full h-[28rem] object-contain rounded-xl"
               onerror="this.style.opacity='0'; this.nextElementSibling.style.display='flex'">
             <div
@@ -306,27 +305,31 @@
           </div>
           <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2 max-w-4xl">
             <span class="text-blue-300 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
-            Quantifies the direct linear relationship coefficient between isolated behaviors (sentiment vs returns vs
-            volume vs rolling variances).
+            Weak correlation confirms non-linear relationship between news volume and returns, reinforcing need for ML-based modeling over linear assumptions.
           </p>
         </div>
 
       </div>
     </section>
 
+
     <!-- SECTION 6: MODEL PERFORMANCE (Realistic Output Tracking) -->
     <section>
-      <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4">Predictive Evaluation Matrix</h2>
+      <div class="mb-8 border-b border-slate-800 pb-4">
+        <h2 class="text-3xl font-bold text-white mb-2">Predictive Evaluation Matrix</h2>
+        <p class="text-slate-400 text-lg font-medium italic">Model performance evaluated under strict temporal validation to simulate real-market conditions (no future leakage).</p>
+      </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         <!-- Classification -->
         <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
-          <div class="bg-slate-800/90 px-8 py-5 border-b border-slate-700 flex justify-between items-center">
-            <h3 class="text-lg font-extrabold text-white uppercase tracking-wider">Classification Engine</h3>
-            <span
-              class="text-xs bg-purple-900/60 text-purple-300 px-3 py-1 rounded shadow-sm border border-purple-500/50 uppercase font-black tracking-widest">Signal
-              Calls</span>
+          <div class="bg-slate-800/90 px-8 py-5 border-b border-slate-700 flex flex-col gap-2">
+            <div class="flex justify-between items-center w-full">
+              <h3 class="text-lg font-extrabold text-white uppercase tracking-wider">Classification Engine</h3>
+              <span class="text-xs bg-purple-900/60 text-purple-300 px-3 py-1 rounded shadow-sm border border-purple-500/50 uppercase font-black tracking-widest">Signal Calls</span>
+            </div>
+            <p class="text-purple-200/80 text-sm font-medium italic">Predicts directional movement (Up/Down) for T+3 horizon.</p>
           </div>
           <div class="overflow-x-auto p-4">
             <table class="w-full text-left text-sm whitespace-nowrap">
@@ -349,10 +352,12 @@
 
         <!-- Regression -->
         <div class="glass-card rounded-2xl border border-slate-700 overflow-hidden shadow-2xl">
-          <div class="bg-slate-800/90 px-8 py-5 border-b border-slate-700 flex justify-between items-center">
-            <h3 class="text-lg font-extrabold text-white uppercase tracking-wider">Regression Engine</h3>
-            <span
-              class="text-xs bg-teal-900/60 text-teal-300 px-3 py-1 rounded shadow-sm border border-teal-500/50 uppercase font-black tracking-widest">Magnitude</span>
+          <div class="bg-slate-800/90 px-8 py-5 border-b border-slate-700 flex flex-col gap-2">
+            <div class="flex justify-between items-center w-full">
+              <h3 class="text-lg font-extrabold text-white uppercase tracking-wider">Regression Engine</h3>
+              <span class="text-xs bg-teal-900/60 text-teal-300 px-3 py-1 rounded shadow-sm border border-teal-500/50 uppercase font-black tracking-widest">Magnitude</span>
+            </div>
+            <p class="text-teal-200/80 text-sm font-medium italic">Estimates return magnitude under high-noise stochastic conditions.</p>
           </div>
           <div class="overflow-x-auto p-4">
             <table class="w-full text-left text-sm whitespace-nowrap">
@@ -400,6 +405,68 @@
           </p>
         </div>
       </div>
+    </section>
+
+    <!-- SECTION 7: DISCUSSION & CONCLUSION -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      
+      <!-- Key Insights -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden flex flex-col">
+        <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Key Insights & Discussion</h2>
+        <ul class="space-y-4 text-slate-300 font-medium">
+          <li class="flex items-start gap-3">
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+            <span>Random Forest outperforms due to its ability to capture non-linear interactions and reduce noise variance.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+            <span>Linear models underperform (R² ≈ 0) confirming weak linear structure in financial markets.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+            <span>Sentiment signals show predictive relevance but require domain-specific NLP (limitation of TextBlob).</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+            <span>Post-leakage correction accuracy (~60%) aligns with realistic financial modeling benchmarks.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Conclusion & Future Scope -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden flex flex-col">
+        <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Conclusion & Future Scope</h2>
+        <p class="text-slate-300 font-medium mb-6">
+          This system demonstrates a scalable framework for integrating unstructured news with structured financial data for predictive analytics.
+        </p>
+        <div class="grid grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-sm">Key Contributions</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm font-medium">
+              <li>End-to-end pipeline (scraping → NLP → ML → dashboard)</li>
+              <li>Realistic evaluation (no leakage)</li>
+              <li>Multi-factor signal modeling</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-sm">Limitations</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm font-medium">
+              <li>Generic sentiment model (TextBlob)</li>
+              <li>Limited dataset scale</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-700/50">
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-sm">Future Enhancements</h4>
+          <ul class="list-disc pl-5 space-y-1 text-slate-400 text-sm font-medium">
+            <li>FinBERT (finance-specific NLP)</li>
+            <li>XGBoost / LSTM for temporal learning</li>
+            <li>Real-time streaming pipeline</li>
+            <li>Portfolio optimization layer</li>
+          </ul>
+        </div>
+      </div>
+
     </section>
 
   </main>

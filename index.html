@@ -111,8 +111,8 @@
       <h1 class="text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-4 drop-shadow-md">Market Intelligence
         Dashboard</h1>
       <p class="text-slate-400 text-2xl font-medium max-w-4xl leading-relaxed mb-10">
-        Combining price action, technical indicators, and news sentiment to identify rapid quantitative edge and
-        opportunities.
+        A multi-factor predictive intelligence system integrating financial news semantics, technical signals, and
+        volatility regimes to forecast short-term market direction (T+3 horizon).
       </p>
 
       <div id="hero-badges" class="w-full mt-8">
@@ -123,6 +123,117 @@
         </div>
       </div>
     </header>
+
+    <!-- SYSTEM OVERVIEW IMAGE -->
+    <section class="w-full relative group">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl rounded-3xl opacity-50 group-hover:opacity-70 transition-opacity duration-500">
+      </div>
+      <div
+        class="glass-card rounded-3xl p-2 md:p-4 border border-slate-700/50 flex justify-center items-center shadow-2xl relative overflow-hidden bg-slate-900/60">
+        <img src="overview_img.png" alt="System Architecture Overview"
+          class="w-full max-h-[80vh] object-contain rounded-2xl relative z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-slate-700">
+      </div>
+    </section>
+
+    <!-- PROBLEM & METHODOLOGY -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      <!-- Problem Statement -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-red-500/10 rounded-full blur-[60px]"></div>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+            </path>
+          </svg>
+          Problem Statement & Objective
+        </h2>
+        <p class="text-slate-300 text-lg leading-relaxed font-medium mb-4">
+          Financial markets exhibit high sensitivity to unstructured information such as news, earnings announcements,
+          and macro events. Traditional models fail to incorporate semantic signals effectively.
+        </p>
+        <p class="text-slate-300 text-lg leading-relaxed font-medium">
+          This project addresses the challenge of predicting short-term stock movement (T+3) by integrating structured
+          technical indicators with unstructured news sentiment using machine learning.
+        </p>
+      </div>
+
+      <!-- Methodology -->
+      <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden">
+        <div class="absolute -left-10 -bottom-10 w-48 h-48 bg-blue-500/10 rounded-full blur-[60px]"></div>
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+          <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+          Methodology Overview
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <div class="bg-blue-500/20 text-blue-400 p-1.5 rounded mt-0.5"><svg class="w-4 h-4" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4">
+                </path>
+              </svg></div>
+            <div><strong class="text-white">Data Pipeline:</strong> <span class="text-slate-400">Integrated multi-source
+                financial data pipeline combining Economic Times & CNBC news scraping (keyword-filtered, MD5
+                deduplicated ~1200 articles) with Yahoo Finance OHLCV data (2023–present) aligned at daily
+                frequency</span></div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="bg-blue-500/20 text-blue-400 p-1.5 rounded mt-0.5"><svg class="w-4 h-4" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                </path>
+              </svg></div>
+            <div><strong class="text-white">Feature Engineering:</strong> <span class="text-slate-400">Derived
+                predictive signals including returns, trend strength, momentum (3D/5D), volatility (5D/10D), volume
+                spike, RSI, MACD, Bollinger width, and aggregated sentiment polarity features</span></div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="bg-blue-500/20 text-blue-400 p-1.5 rounded mt-0.5"><svg class="w-4 h-4" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                </path>
+              </svg></div>
+            <div><strong class="text-white">Leakage Prevention:</strong> <span class="text-slate-400">Strict temporal
+                alignment using lagged features (t-1) ensuring models only learn from past data and simulate real-world
+                forward prediction</span></div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="bg-blue-500/20 text-blue-400 p-1.5 rounded mt-0.5"><svg class="w-4 h-4" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                </path>
+              </svg></div>
+            <div><strong class="text-white">Models:</strong> <span class="text-slate-400">Supervised learning using
+                Decision Tree, Random Forest, SVM, and Naive Bayes for classification, along with Linear and Ridge
+                Regression for return magnitude prediction</span></div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="bg-blue-500/20 text-blue-400 p-1.5 rounded mt-0.5"><svg class="w-4 h-4" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
+                </path>
+              </svg></div>
+            <div><strong class="text-white">Target:</strong> <span class="text-slate-400">Short-term forecasting of
+                stock behavior including directional movement (3-day UP/DOWN classification) and return magnitude
+                estimation for risk-adjusted decision support</span></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
     <!-- 3. AI MARKET INSIGHT PANEL -->
     <section>
@@ -149,72 +260,64 @@
     </section>
 
     <!-- 4 & 5. OPPORTUNITIES & RISK ALERTS -->
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <section class="space-y-8">
+      <p class="text-slate-400 text-lg font-medium italic border-b border-slate-800 pb-6 text-center">
+        Signal-driven asset ranking based on composite score: f(sentiment, momentum, volatility, volume anomaly)
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-      <!-- Top Opportunities -->
-      <div>
-        <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-          <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6">
-            </path>
-          </svg>
-          Top Opportunities
-        </h2>
-        <div id="top-opps" class="space-y-4">
-          <!-- JS Populated -->
+        <!-- Top Opportunities -->
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6">
+              </path>
+            </svg>
+            Top Opportunities
+          </h2>
+          <div id="top-opps" class="space-y-4">
+            <!-- JS Populated -->
+          </div>
         </div>
-      </div>
 
-      <!-- Risk Alerts -->
-      <div>
-        <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-          <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
-            </path>
-          </svg>
-          Critical Risk Alerts
-        </h2>
-        <div id="risk-alerts" class="space-y-4">
-          <!-- JS Populated -->
+        <!-- Risk Alerts -->
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+            <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+              </path>
+            </svg>
+            Critical Risk Alerts
+          </h2>
+          <div id="risk-alerts" class="space-y-4">
+            <!-- JS Populated -->
+          </div>
         </div>
-      </div>
-
     </section>
 
     <!-- 6. MARKET DISTRIBUTION VISUALS -->
     <section>
-      <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4">Global Network Distributions</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-
-        <div class="glass-card rounded-3xl p-6 glass-card-hover flex flex-col">
-          <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest mb-4 leading-tight">Company-wise
-            Sentiment News</h3>
+      <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4 flex items-center gap-3">
+        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+        </svg>
+        Company-wise Sentiment News
+      </h2>
+      <div class="w-full">
+        <div class="glass-card rounded-3xl p-6 md:p-10 glass-card-hover flex flex-col items-center">
           <div
-            class="w-full bg-slate-900 rounded-xl flex items-center justify-center p-2 min-h-[220px] border border-slate-700">
-            <img src="static/graphs/sentiment_distribution.png" class="w-full h-48 object-contain rounded-lg"
+            class="w-full bg-slate-900/60 rounded-2xl flex items-center justify-center p-4 md:p-8 min-h-[400px] border border-slate-700 relative overflow-hidden shadow-inner">
+            <div class="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full"></div>
+            <img src="static/graphs/sentiment_distribution.png" class="w-full max-h-[70vh] object-contain rounded-xl relative z-10 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
               onerror="this.style.display='none'">
           </div>
+          <p class="text-base text-slate-300 font-medium italic mt-6 text-center max-w-4xl px-4">
+            <span class="text-blue-400 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
+            Sentiment distribution derived using polarity scoring (TextBlob), aggregated at company level. Positive skew
+            indicates news-driven bullish bias.
+          </p>
         </div>
-
-        <div class="glass-card rounded-3xl p-6 glass-card-hover flex flex-col">
-          <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest mb-4">Macro Volatility Variance</h3>
-          <div
-            class="w-full bg-slate-900 rounded-xl flex items-center justify-center p-2 min-h-[220px] border border-slate-700">
-            <img src="static/graphs/volatility_over_time.png" class="w-full h-48 object-contain rounded-lg"
-              onerror="this.style.display='none'">
-          </div>
-        </div>
-
-        <div class="glass-card rounded-3xl p-6 glass-card-hover flex flex-col md:col-span-2 xl:col-span-1">
-          <h3 class="text-lg font-bold text-slate-300 uppercase tracking-widest mb-4">Volume Over Return Impact</h3>
-          <div
-            class="w-full bg-slate-900 rounded-xl flex items-center justify-center p-2 min-h-[220px] border border-slate-700">
-            <img src="static/graphs/news_volume_vs_return.png" class="w-full h-48 object-contain rounded-lg"
-              onerror="this.style.display='none'">
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -225,8 +328,8 @@
         class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 pb-4 border-b border-slate-800 gap-6">
         <div>
           <h2 class="text-4xl font-extrabold text-white">Live Asset Screener</h2>
-          <p class="text-slate-400 mt-2 font-medium">Dynamically mapping composite signal outputs across evaluated
-            targets.</p>
+          <p class="text-slate-400 mt-2 font-medium">Real-time feature aggregation pipeline transforming raw signals
+            into predictive intelligence via lag-adjusted features to eliminate data leakage.</p>
         </div>
 
         <div class="flex items-center gap-3">
@@ -367,6 +470,7 @@
             <h2 class="text-lg font-black text-purple-300 flex items-center gap-2 tracking-widest uppercase mb-4 border-b border-purple-500/30 pb-2 inline-block">
               Head-to-Head Asset Combustor
             </h2>
+            <p class="text-purple-200/80 text-sm font-medium mb-4 italic">Comparative signal decomposition across sentiment, momentum, volatility, and predictive score to identify relative alpha opportunities.</p>
             <div class="flex flex-col md:flex-row items-center gap-4 mt-2">
               <select id="vs-t1" class="w-full md:w-1/3 bg-slate-900/80 text-white text-lg font-bold rounded-xl p-3 outline-none border border-slate-700 shadow-inner cursor-pointer"></select>
               <div class="text-slate-300 font-extrabold italic px-2 text-xl">VS</div>
@@ -390,8 +494,7 @@
       let sentimentStr = avgSent > 10 ? "markedly bullish" : (avgSent < -10 ? "notably bearish" : "slightly neutral");
       let volStr = avgVol > 0.025 ? "high systemic volatility" : "moderate control volatility";
       document.getElementById('ai-insight-text').innerHTML =
-        `Majority of the targeted asset pipeline implies a <strong class="text-purple-300 tracking-wide">${mainRegime}</strong> regime exhibiting <strong>${volStr}</strong>.<br/>
-        Aggregated market sentiment flags as <strong class="text-blue-300 border-b border-dashed border-blue-500">${sentimentStr}</strong>, enforcing directional continuation tracking within top-tier scored components.`;
+        `The system synthesizes cross-asset signals using a composite ML scoring engine. Current regime detection indicates a <strong class="text-purple-300 tracking-wide">${mainRegime}</strong> with <strong>${volStr}</strong>, while aggregated sentiment (news-driven) remains statistically bullish (μ_sent ≈ ${avgSent.toFixed(2)}), suggesting short-term continuation bias.`;
 
       // Top Opportunities & Risk
       let scoreSorted = [...enrichedData].sort((a, b) => b.score - a.score);
