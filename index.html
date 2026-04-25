@@ -46,7 +46,7 @@
       border-color: rgba(255, 255, 255, 0.1);
     }
 
-    .ai-gradient {
+    .-gradient {
       background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(88, 28, 135, 0.95));
       box-shadow: 0 10px 30px -10px rgba(88, 28, 135, 0.8);
     }
@@ -235,10 +235,10 @@
 
     </section>
 
-    <!-- 3. AI MARKET INSIGHT PANEL -->
+    <!-- 3.  MARKET INSIGHT PANEL -->
     <section>
       <div
-        class="ai-gradient rounded-3xl p-10 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 shadow-2xl glass-card-hover">
+        class="-gradient rounded-3xl p-10 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 shadow-2xl glass-card-hover">
         <div class="absolute -right-20 -top-20 w-80 h-80 bg-blue-400/20 rounded-full blur-[100px]"></div>
 
         <div class="flex-shrink-0 p-5 bg-white/10 rounded-2xl backdrop-blur border border-white/20 shadow-lg">
@@ -252,7 +252,7 @@
             class="text-lg font-black text-blue-300 flex items-center gap-2 tracking-widest uppercase mb-4 border-b border-blue-500/30 pb-2 inline-block">
             Autonomous Macro Synthesis
           </h2>
-          <p id="ai-insight-text" class="text-white text-2xl leading-relaxed font-normal">
+          <p id="-insight-text" class="text-white text-2xl leading-relaxed font-normal">
             Processing regime algorithms and parsing target distributions...
           </p>
         </div>
@@ -300,7 +300,8 @@
     <section>
       <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4 flex items-center gap-3">
         <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
         </svg>
         Company-wise Sentiment News
       </h2>
@@ -309,7 +310,8 @@
           <div
             class="w-full bg-slate-900/60 rounded-2xl flex items-center justify-center p-4 md:p-8 min-h-[400px] border border-slate-700 relative overflow-hidden shadow-inner">
             <div class="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full"></div>
-            <img src="static/graphs/sentiment_distribution.png" class="w-full max-h-[70vh] object-contain rounded-xl relative z-10 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
+            <img src="static/graphs/sentiment_distribution.png"
+              class="w-full max-h-[70vh] object-contain rounded-xl relative z-10 shadow-[0_0_40px_rgba(0,0,0,0.6)]"
               onerror="this.style.display='none'">
           </div>
           <p class="text-base text-slate-300 font-medium italic mt-6 text-center max-w-4xl px-4">
@@ -404,7 +406,7 @@
       const rawData = await fetchCSV('final_stock_summary.csv');
 
       if (!rawData || rawData.length === 0) {
-        document.getElementById('ai-insight-text').textContent = "ERROR: Failed to source final_stock_summary.csv pipeline outputs.";
+        document.getElementById('-insight-text').textContent = "ERROR: Failed to source final_stock_summary.csv pipeline outputs.";
         return;
       }
 
@@ -457,7 +459,7 @@
 
       // Update Hero Badges
       const badgesHTML = `
-        <div class="ai-gradient rounded-3xl p-10 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 shadow-2xl glass-card-hover w-full">
+        <div class="-gradient rounded-3xl p-10 relative overflow-hidden flex flex-col md:flex-row items-center gap-8 shadow-2xl glass-card-hover w-full">
           <div class="absolute -right-20 -top-20 w-80 h-80 bg-purple-500/20 rounded-full blur-[100px]"></div>
 
           <div class="flex-shrink-0 p-5 bg-white/10 rounded-2xl backdrop-blur border border-white/20 shadow-lg">
@@ -490,10 +492,10 @@
       });
       if (sortedTickers.length > 1) vs2.selectedIndex = 1;
 
-      // Update AI Insight
+      // Update  Insight
       let sentimentStr = avgSent > 10 ? "markedly bullish" : (avgSent < -10 ? "notably bearish" : "slightly neutral");
       let volStr = avgVol > 0.025 ? "high systemic volatility" : "moderate control volatility";
-      document.getElementById('ai-insight-text').innerHTML =
+      document.getElementById('-insight-text').innerHTML =
         `The system synthesizes cross-asset signals using a composite ML scoring engine. Current regime detection indicates a <strong class="text-purple-300 tracking-wide">${mainRegime}</strong> with <strong>${volStr}</strong>, while aggregated sentiment (news-driven) remains statistically bullish (μ_sent ≈ ${avgSent.toFixed(2)}), suggesting short-term continuation bias.`;
 
       // Top Opportunities & Risk

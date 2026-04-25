@@ -68,7 +68,7 @@
       border-left: 4px solid #f97316;
     }
 
-    .ai-gradient {
+    .-gradient {
       background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(88, 28, 135, 0.9));
       box-shadow: 0 10px 30px -10px rgba(88, 28, 135, 0.8);
     }
@@ -114,10 +114,10 @@
       </div>
     </header>
 
-    <!-- SECTION 2: AI INSIGHT PANEL (HERO) -->
+    <!-- SECTION 2:  INSIGHT PANEL (HERO) -->
     <section>
       <div
-        class="ai-gradient rounded-3xl p-10 border border-purple-500/30 relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center gap-8">
+        class="-gradient rounded-3xl p-10 border border-purple-500/30 relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center gap-8">
         <div class="absolute -right-20 -top-20 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]"></div>
 
         <div class="flex-shrink-0 p-5 bg-white/10 rounded-2xl backdrop-blur border border-white/10">
@@ -127,9 +127,9 @@
         </div>
 
         <div class="flex-1 relative z-10">
-          <h2 class="text-xl font-bold text-blue-200 uppercase tracking-widest mb-4">AI Synthesized Intelligence</h2>
+          <h2 class="text-xl font-bold text-blue-200 uppercase tracking-widest mb-4"> Stock Overview</h2>
           <div id="interpretation-text" class="text-white text-xl md:text-2xl leading-relaxed font-light">
-            Generating real-time insight synthesis...
+            Real-time insight...
           </div>
         </div>
       </div>
@@ -287,13 +287,15 @@
           </div>
           <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2">
             <span class="text-orange-400 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
-            Rolling volatility (σ²) captures regime instability. Sudden spikes indicate information shocks or institutional repositioning.
+            Rolling volatility (σ²) captures regime instability. Sudden spikes indicate information shocks or
+            institutional repositioning.
           </p>
         </div>
 
         <!-- Graph 4: Correlation Heatmap -->
         <div class="glass-card rounded-3xl p-6 flex flex-col">
-          <h3 class="text-2xl font-bold text-white mb-4 pl-2 border-l-4 border-blue-400">Volume vs Return Impact (Scatter)</h3>
+          <h3 class="text-2xl font-bold text-white mb-4 pl-2 border-l-4 border-blue-400">Volume vs Return Impact
+            (Scatter)</h3>
           <div
             class="w-full bg-slate-800/80 rounded-2xl flex items-center justify-center p-6 relative border border-slate-700/50 min-h-[500px]">
             <img id="img-correlation" src="" alt="Volume vs Return Impact"
@@ -305,7 +307,8 @@
           </div>
           <p class="mt-6 text-base text-slate-300 leading-relaxed font-medium px-2 max-w-4xl">
             <span class="text-blue-300 font-bold uppercase text-sm tracking-wider mr-2">Insight:</span>
-            Weak correlation confirms non-linear relationship between news volume and returns, reinforcing need for ML-based modeling over linear assumptions.
+            Weak correlation confirms non-linear relationship between news volume and returns, reinforcing need for
+            ML-based modeling over linear assumptions.
           </p>
         </div>
 
@@ -317,7 +320,8 @@
     <section>
       <div class="mb-8 border-b border-slate-800 pb-4">
         <h2 class="text-3xl font-bold text-white mb-2">Predictive Evaluation Matrix</h2>
-        <p class="text-slate-400 text-lg font-medium italic">Model performance evaluated under strict temporal validation to simulate real-market conditions (no future leakage).</p>
+        <p class="text-slate-400 text-lg font-medium italic">Model performance evaluated under strict temporal
+          validation to simulate real-market conditions (no future leakage).</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -327,9 +331,12 @@
           <div class="bg-slate-800/90 px-8 py-5 border-b border-slate-700 flex flex-col gap-2">
             <div class="flex justify-between items-center w-full">
               <h3 class="text-lg font-extrabold text-white uppercase tracking-wider">Classification Engine</h3>
-              <span class="text-xs bg-purple-900/60 text-purple-300 px-3 py-1 rounded shadow-sm border border-purple-500/50 uppercase font-black tracking-widest">Signal Calls</span>
+              <span
+                class="text-xs bg-purple-900/60 text-purple-300 px-3 py-1 rounded shadow-sm border border-purple-500/50 uppercase font-black tracking-widest">Signal
+                Calls</span>
             </div>
-            <p class="text-purple-200/80 text-sm font-medium italic">Predicts directional movement (Up/Down) for T+3 horizon.</p>
+            <p class="text-purple-200/80 text-sm font-medium italic">Predicts directional movement (Up/Down) for T+3
+              horizon.</p>
           </div>
           <div class="overflow-x-auto p-4">
             <table class="w-full text-left text-sm whitespace-nowrap">
@@ -355,9 +362,11 @@
           <div class="bg-slate-800/90 px-8 py-5 border-b border-slate-700 flex flex-col gap-2">
             <div class="flex justify-between items-center w-full">
               <h3 class="text-lg font-extrabold text-white uppercase tracking-wider">Regression Engine</h3>
-              <span class="text-xs bg-teal-900/60 text-teal-300 px-3 py-1 rounded shadow-sm border border-teal-500/50 uppercase font-black tracking-widest">Magnitude</span>
+              <span
+                class="text-xs bg-teal-900/60 text-teal-300 px-3 py-1 rounded shadow-sm border border-teal-500/50 uppercase font-black tracking-widest">Magnitude</span>
             </div>
-            <p class="text-teal-200/80 text-sm font-medium italic">Estimates return magnitude under high-noise stochastic conditions.</p>
+            <p class="text-teal-200/80 text-sm font-medium italic">Estimates return magnitude under high-noise
+              stochastic conditions.</p>
           </div>
           <div class="overflow-x-auto p-4">
             <table class="w-full text-left text-sm whitespace-nowrap">
@@ -412,44 +421,63 @@
       <h2 class="text-3xl font-bold text-white mb-8 border-b border-slate-800 pb-4 flex items-center gap-3">
         <svg class="w-8 h-8 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1">
+          </path>
         </svg>
         Market Pattern Rules (Association Mining)
       </h2>
-      
+
       <div id="rules-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         <!-- JS Populated -->
       </div>
-      
+
       <div class="mt-8 glass-card rounded-2xl p-6 border-l-4 border-l-yellow-500 shadow-md">
         <p class="text-base text-slate-300 leading-relaxed font-medium">
           <strong class="text-white uppercase tracking-wider font-extrabold mr-2">Insight:</strong>
-          These algorithmic rules identify high-probability multi-variable patterns specific to <span id="rules-ticker-insight" class="text-yellow-400 font-bold">this asset</span>. Strong confidence (>80%) paired with high lift (>1.5) establishes non-random conditional triggers that historically precede significant price action.
+          These algorithmic rules identify high-probability multi-variable patterns specific to <span
+            id="rules-ticker-insight" class="text-yellow-400 font-bold">this asset</span>. Strong confidence (>80%)
+          paired with high lift (>1.5) establishes non-random conditional triggers that historically precede significant
+          price action.
         </p>
       </div>
     </section>
 
     <!-- SECTION 7: DISCUSSION & CONCLUSION -->
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-      
+
       <!-- Key Insights -->
       <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden flex flex-col">
         <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Key Insights & Discussion</h2>
         <ul class="space-y-4 text-slate-300 font-medium">
           <li class="flex items-start gap-3">
-            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-            <span>Random Forest outperforms due to its ability to capture non-linear interactions and reduce noise variance.</span>
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg></div>
+            <span>Random Forest outperforms due to its ability to capture non-linear interactions and reduce noise
+              variance.</span>
           </li>
           <li class="flex items-start gap-3">
-            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg></div>
             <span>Linear models underperform (R² ≈ 0) confirming weak linear structure in financial markets.</span>
           </li>
           <li class="flex items-start gap-3">
-            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-            <span>Sentiment signals show predictive relevance but require domain-specific NLP (limitation of TextBlob).</span>
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg></div>
+            <span>Sentiment signals show predictive relevance but require domain-specific NLP (limitation of
+              TextBlob).</span>
           </li>
           <li class="flex items-start gap-3">
-            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+            <div class="text-blue-400 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg></div>
             <span>Post-leakage correction accuracy (~60%) aligns with realistic financial modeling benchmarks.</span>
           </li>
         </ul>
@@ -459,7 +487,8 @@
       <div class="glass-card rounded-3xl p-8 border border-slate-700/50 relative overflow-hidden flex flex-col">
         <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Conclusion & Future Scope</h2>
         <p class="text-slate-300 font-medium mb-6">
-          This system demonstrates a scalable framework for integrating unstructured news with structured financial data for predictive analytics.
+          This system demonstrates a scalable framework for integrating unstructured news with structured financial data
+          for predictive analytics.
         </p>
         <div class="grid grid-cols-2 gap-6">
           <div>
@@ -614,7 +643,7 @@
         document.getElementById('tech-volume').textContent = isNaN(vSpike) ? '---' : vSpike.toFixed(4);
         document.getElementById('tech-volume').className = "text-3xl font-black mb-3 drop-shadow text-white";
 
-        // AI Interpretation
+        //  Interpretation
         let trendState = "CONSISTENT UPTREND";
         if (t5d < 0) trendState = "NEGATIVE PRESSURE";
 
@@ -625,7 +654,7 @@
 
         document.getElementById('interpretation-text').innerHTML =
           `<span class="text-white font-extrabold">${ticker}</span> tracks identically within a <span class="text-purple-300 font-extrabold tracking-wider bg-purple-900/30 px-2 py-1 rounded inline-block border border-purple-500/50">${regm}</span> macro profile, currently outputting <span class="font-bold border-b border-dashed">${vState}</span> risk variance metrics. <br/><br/>
-          Coupled with explicit <span class="${r1d > 0 ? 'text-green-300' : 'text-red-400'} font-black text-2xl tracking-wide">${trendState}</span> dynamics over 5D roll, AI computation distinctly evaluates this asset positioning as <span class="text-blue-300 uppercase tracking-widest font-extrabold underline decoration-blue-500 underline-offset-8 bg-blue-900/20 px-2 leading-loose border border-blue-500/30 ml-1 shadow-[0_0_15px_rgba(59,130,246,0.3)]">${lbl}</span>.`;
+          Coupled with explicit <span class="${r1d > 0 ? 'text-green-300' : 'text-red-400'} font-black text-2xl tracking-wide">${trendState}</span> dynamics over 5D roll,  computation distinctly evaluates this asset positioning as <span class="text-blue-300 uppercase tracking-widest font-extrabold underline decoration-blue-500 underline-offset-8 bg-blue-900/20 px-2 leading-loose border border-blue-500/30 ml-1 shadow-[0_0_15px_rgba(59,130,246,0.3)]">${lbl}</span>.`;
       } else {
         document.getElementById('interpretation-text').textContent = "DATA INSUFFICIENT FOR SYNTHESIS.";
       }
@@ -720,28 +749,28 @@
       const tRules = rulesData.filter(r => r.Ticker === ticker);
       const rulesContainer = document.getElementById('rules-container');
       const rulesInsightTicker = document.getElementById('rules-ticker-insight');
-      
+
       if (rulesInsightTicker) rulesInsightTicker.textContent = ticker;
-      
+
       if (!tRules || tRules.length === 0) {
         rulesContainer.innerHTML = `<div class="col-span-full text-slate-500 italic font-medium p-8 text-center bg-slate-800/20 rounded-2xl border border-slate-700/50">No significant association patterns discovered for this asset under current thresholds.</div>`;
       } else {
         // Sort by score descending
         tRules.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
-        
+
         rulesContainer.innerHTML = tRules.slice(0, 6).map((rule, idx) => {
           const ant = (rule.antecedents || '').replace(/_/g, ' ').replace(/"/g, '').split(',').map(s => `<span class="bg-blue-900/40 text-blue-300 border border-blue-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block mb-1">${s.trim()}</span>`).join(' <span class="text-slate-500 mx-1 text-xs">+</span> ');
-          
+
           const con = (rule.consequents || '').replace(/_/g, ' ').replace(/"/g, '').split(',').map(s => {
-             const isUp = s.toUpperCase().includes('UP');
-             const color = isUp ? 'green' : 'red';
-             return `<span class="bg-${color}-900/40 text-${color}-300 border border-${color}-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block">${s.trim()}</span>`;
+            const isUp = s.toUpperCase().includes('UP');
+            const color = isUp ? 'green' : 'red';
+            return `<span class="bg-${color}-900/40 text-${color}-300 border border-${color}-500/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider inline-block">${s.trim()}</span>`;
           }).join(' <span class="text-slate-500 mx-1 text-xs">+</span> ');
 
           return `
             <div class="glass-card rounded-2xl p-6 border border-slate-700/50 flex flex-col justify-between hover:border-yellow-500/50 transition-colors group">
               <div>
-                <div class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-3">Pattern #${idx+1}</div>
+                <div class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-3">Pattern #${idx + 1}</div>
                 <div class="flex flex-col gap-3 mb-6">
                   <div>
                     <div class="text-[10px] uppercase text-slate-400 font-bold mb-2">If (Condition)</div>
@@ -759,11 +788,11 @@
               <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-700/50">
                 <div class="text-center">
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Support</div>
-                  <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.support)*100).toFixed(1)}%</div>
+                  <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.support) * 100).toFixed(1)}%</div>
                 </div>
                 <div class="text-center border-l border-r border-slate-700/50">
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Confidence</div>
-                  <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.confidence)*100).toFixed(1)}%</div>
+                  <div class="text-sm font-mono font-bold text-white mt-1">${(parseFloat(rule.confidence) * 100).toFixed(1)}%</div>
                 </div>
                 <div class="text-center">
                   <div class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Lift</div>
